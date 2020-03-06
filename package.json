@@ -12,7 +12,9 @@
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
     "react-signature-canvas": "^1.0.3",
-    "schema-utils": "^2.6.4"
+    "schema-utils": "^2.6.4",
+    "typescript": "^2.8.0",
+    "eslint-plugin-flowtype": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

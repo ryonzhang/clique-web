@@ -9,7 +9,7 @@ ENV PATH /node_modules/.bin:$PATH
 
 # install and cache app dependencies
 COPY . ./
-RUN npm install --silent
+RUN npm install 
 
 # start app
 EXPOSE 3000
