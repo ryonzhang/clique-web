@@ -1,0 +1,19 @@
+1.change the access right of private key
+chmod 400 clique.pem
+2.install app git 
+sudo yum install git
+3.clone repository 
+git clone https://github.com/ryonzhang/clique-web.git
+4.install docker 
+sudo yum install docker
+sudo service docker start
+5.build docker image
+sudo docker build . -t clique
+6.run the container
+sudo docker run -d -p 80:3000 clique-web
+7.go inside the docker container
+sudo docker exec -it 13b1f4b4eb08 bash
+8.migrate db
+rails db:migrate
+9.seed db
+rails db:seed
