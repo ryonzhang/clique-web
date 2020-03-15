@@ -8,7 +8,7 @@ git clone https://github.com/ryonzhang/clique-web.git
 sudo yum install docker
 sudo service docker start
 5.build docker image
-sudo docker build . -t clique
+sudo docker build . -t clique-web
 6.run the container
 sudo docker run -d -p 80:3000 clique-web
 7.go inside the docker container
