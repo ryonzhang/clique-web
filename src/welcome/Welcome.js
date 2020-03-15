@@ -7,11 +7,7 @@ import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import IconButton from '@material-ui/core/IconButton';
 import Button from "@material-ui/core/Button";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Grid from '@material-ui/core/Grid';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -19,6 +15,10 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from "@material-ui/core/TextField";
+import {
+  Formik,
+} from 'formik';
+import * as Yup from 'yup';
 
 import music from '../assets/music.jpg';
 import china from '../assets/china.jpg';
@@ -26,7 +26,6 @@ import drawing from '../assets/drawing.jpg';
 import instruments from '../assets/instruments.png';
 import speech from '../assets/speech.jpg';
 import programming from '../assets/programming.jpg';
-import {Checkbox} from "@material-ui/core";
 import Checkout from "../checkout/Checkout";
 
 
@@ -133,6 +132,10 @@ export default function Welcome() {
     setOpen(false);
   };
 
+  const handleSubmit= () => {
+    setOpen(false);
+  };
+
   const handleCheckoutClickOpen = () => {
     setOpenCheckout(true);
   };
@@ -156,14 +159,7 @@ export default function Welcome() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
-      <AppBar position="absolute" color="default" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Clique
-          </Typography>
-        </Toolbar>
-      </AppBar>
+
 
 
       <main className={classes.layout} >
@@ -213,38 +209,101 @@ export default function Welcome() {
             <DialogContentText>
               We will get in touch with you as soon as possible, please leave your contacts below, as simple as that! Or if you are eager to get it done right now, you can contact us at <b>+65 97361988</b> or add Whatsapp at this number.
             </DialogContentText>
-            <TextField
-                autoFocus
-                margin="dense"
-                id="name"
-                label="Name"
-                fullWidth
-            />
-            <TextField
-                autoFocus
-                margin="dense"
-                id="name"
-                label="Email Address"
-                type="email"
-                fullWidth
-            />
-            <TextField
-                autoFocus
-                margin="dense"
-                id="name"
-                label="Phone Number"
-                type="number"
-                fullWidth
-            />
+            <Formik
+                initialValues={{ email: '', name: '', comment: '' }}
+                onSubmit={(values, { setSubmitting }) => {
+                  setSubmitting(true);
+                  // axios.post(contactFormEndpoint,
+                  //     values,
+                  //     {
+                  //       headers: {
+                  //         'Access-Control-Allow-Origin': '*',
+                  //         'Content-Type': 'application/json',
+                  //       }
+                  //     },
+                  // ).then((resp) => {
+                  //       setSubmitionCompleted(true);
+                  //     }
+                  // );
+                }}
+
+                validationSchema={Yup.object().shape({
+                  email: Yup.string()
+                      .email()
+                      .required('Required'),
+                  name: Yup.string()
+                      .required('Required'),
+                  phone: Yup.number()
+                      .required('Required'),
+                })}
+            >
+              {(props) => {
+                const {
+                  values,
+                  touched,
+                  errors,
+                  dirty,
+                  isSubmitting,
+                  handleChange,
+                  handleBlur,
+                  handleSubmit,
+                  handleReset,
+                } = props;
+                return (
+                    <form onSubmit={handleSubmit}>
+                      <TextField
+                          autoFocus
+                          required
+                          margin="dense"
+                          id="name"
+                          label="Name"
+                          fullWidth
+                          value={values.name}
+                          error = {errors.name && touched.name}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          helperText={(errors.name && touched.name) && errors.name}
+                      />
+                      <TextField
+                          required
+                          margin="dense"
+                          id="email"
+                          label="Email Address"
+                          type="email"
+                          fullWidth
+                          value={values.email}
+                          error = {errors.email && touched.email}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          helperText={(errors.email && touched.email) && errors.email}
+                      />
+                      <TextField
+                          required
+                          margin="dense"
+                          id="phone"
+                          label="Phone Number"
+                          type="number"
+                          fullWidth
+                          value={values.phone}
+                          error = {errors.phone && touched.phone}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          helperText={(errors.phone && touched.phone) && errors.phone}
+                      />
+                      <DialogActions>
+                        <Button onClick={handleReset} color="primary">
+                          Cancel
+                        </Button>
+                        <Button onClick={handleSubmit} color="primary" type="submit" disabled={isSubmitting}>
+                          Submit
+                        </Button>
+                      </DialogActions>
+                    </form>
+                );
+              }}
+            </Formik>
+
           </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="primary">
-              Cancel
-            </Button>
-            <Button onClick={handleClose} color="primary">
-              Subscribe
-            </Button>
-          </DialogActions>
         </Dialog>
       </main>
     </React.Fragment>

@@ -1,12 +1,38 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Divider from "@material-ui/core/Divider";
-
-export default function PaymentForm() {
+import Button from "@material-ui/core/Button";
+import {makeStyles} from "@material-ui/core/styles";
+const useStyles = makeStyles(theme => ({
+  listItem: {
+    padding: theme.spacing(1, 0),
+  },
+  total: {
+    fontWeight: 700,
+  },
+  title: {
+    marginTop: theme.spacing(2),
+  },
+  buttons: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+    button: {
+  marginTop: theme.spacing(3),
+  marginLeft: theme.spacing(1),
+},
+  text:{
+    color: 'red',
+  fontsize: 'smaller',
+  paddingLeft: '12px',
+  marginTop: '-18px',
+  },
+}));
+export default function PaymentForm(props) {
+  const classes = useStyles();
+  const [checked, setChecked] = React.useState(false);
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -58,11 +84,31 @@ export default function PaymentForm() {
         </Grid>
         <Grid item xs={12}>
           <FormControlLabel
-            control={<Checkbox color="secondary" name="saveCard" value="yes" />}
+            control={<Checkbox color="secondary" name="saveCard" value="yes" onChange={event=>{setChecked(event.target.checked)}} />}
             label="I will accept the free membership upon ticking"
           />
         </Grid>
+        {
+          !checked && <body1 className={classes.text} >Please tick this box to proceed</body1>
+        }
+
       </Grid>
+      <div className={classes.buttons}>
+            <Button onClick={props.handleBack} className={classes.button}>
+              Back
+            </Button>
+        <Button
+            variant="contained"
+            color="primary"
+            onClick={()=>{
+              props.handleNext();
+              console.log(props.value);
+            }}
+            disabled={!checked}
+            className={classes.button}
+        >Next
+        </Button>
+      </div>
     </React.Fragment>
   );
 }
