@@ -101,6 +101,7 @@ const useStyles = makeStyles(theme => ({
         fontSize:'1.25rem',
         textAlign:'left',
         paddingLeft:60,
+        display: 'block',
     }
 }));
 

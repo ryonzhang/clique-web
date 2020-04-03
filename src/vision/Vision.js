@@ -22,7 +22,7 @@ import china from '../assets/china.jpg';
 import drawing from '../assets/drawing.jpg';
 import instruments from '../assets/instruments.png';
 import speech from '../assets/speech.jpg';
-import mission from '../assets/mission.jpg';
+import mission from '../assets/mission.png';
 import programming from '../assets/programming.jpg';
 import Checkout from "../checkout/Checkout";
 
@@ -82,7 +82,8 @@ const useStyles = makeStyles(theme => ({
         paddingTop:50,
     },
     font:{
-        fontFamily:'Passion One,sans-serif',
+        color:'white',
+        fontFamily:'sans-serif',
         fontWeight:400,
         fontSize:'4.25rem',
         paddingRight: 300,
@@ -90,7 +91,8 @@ const useStyles = makeStyles(theme => ({
         paddingLeft:500,
     },
     smallFont:{
-        fontFamily:'Passion One,sans-serif',
+        color:'white',
+        fontFamily:'sans-serif',
         fontWeight:30,
         fontSize:'1.75rem',
         paddingRight: 30,
@@ -133,23 +135,7 @@ export default function Mision() {
             <main className={classes.layout} >
                 {/*<div className={classes.root}>*/}
 
-                <div className={classes.font}>Our Vision</div>
 
-
-                            <div className={classes.smallFont}>
-                                We aim to build a community for children to explore and grow their talents <p/>
-
-                                Very often, we as parents are unsure about our children’s strength and weaknesses.<p/>
-                                Clique pledge to help parents identify your children’s forte by connecting them to different activities at a minimum cost!<p/>
-
-                                Join us in the journey and list your unsold class spots with us to maximize your revenue<p/>
-
-                            </div>
-                            {/*<Button variant="contained"  className={classes.button} onClick={handleCheckoutClickOpen}>*/}
-                            {/*    I'm in! Register me!*/}
-                            {/*</Button>*/}
-
-                {/*</div>*/}
                 <Dialog open={openCheckout} onClose={handleCheckoutClose} aria-labelledby="form-dialog-title">
                     <Checkout/>
                 </Dialog>

@@ -202,7 +202,7 @@ export default function AddressForm(props) {
                             </Grid>
                         </Grid>
                         <div className={classes.buttons}>
-                            <Button onClick={props.handleBack} className={classes.button}>
+                            <Button onClick={outerProps.handleBack} className={classes.button}>
                                 Back
                             </Button>
 

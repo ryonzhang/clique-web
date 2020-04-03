@@ -67,7 +67,7 @@ export default function Checkout(props) {
   function getStepContent(step) {
     switch (step) {
       case 0:
-        return <AddressForm handleNext={handleNext} handleBack={handleBack} updateValue={setValues} value={values}/>;
+        return <AddressForm handleNext={handleNext} handleBack={props.close} updateValue={setValues} value={values}/>;
       case 1:
         return <PaymentForm handleNext={handleNext} handleBack={handleBack} updateValue={setValues} value={values}/>;
       case 2:

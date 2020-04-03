@@ -24,7 +24,7 @@ import china from '../assets/china.jpg';
 import drawing from '../assets/drawing.jpg';
 import instruments from '../assets/instruments.png';
 import speech from '../assets/speech.jpg';
-import background from '../assets/background.jpg';
+import background from '../assets/background_mobile.jpg';
 import programming from '../assets/programming.jpg';
 import Checkout from "../checkout/Checkout";
 import Alert from "@material-ui/lab/Alert";
@@ -68,8 +68,9 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'flex-end',
     },
     button: {
-        marginTop: theme.spacing(10),
-        marginLeft: 600,
+        marginTop: theme.spacing(20),
+        marginLeft: 30,
+        color:'pink',
     },
 
     gridList: {
@@ -90,10 +91,11 @@ const useStyles = makeStyles(theme => ({
     },
     font:{
         fontFamily:'Passion One,sans-serif',
-        fontWeight:400,
-        fontSize:'4.25rem',
-        paddingLeft: 300,
-        paddingTop:150,
+        fontWeight:200,
+        fontSize:'2.25rem',
+        paddingLeft: 10,
+        paddingTop:100,
+        color:'#a74e51'
     }
 }));
 
@@ -133,7 +135,7 @@ const tileData = [
 ];
 
 
-export default function Starter() {
+export default function StarterMobile() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [openSuccessToast, setOpenSuccessToast] = React.useState(false);
@@ -176,7 +178,7 @@ export default function Starter() {
             <div className={classes.font}>Grow your business with CliquePass</div>
 
 
-            <Button variant="outlined" color="primary" className={classes.button} onClick={handleClickOpen}>
+            <Button variant="outlined"  color="red" className={classes.button} onClick={handleClickOpen}>
                 Interested? Let us contact you!
             </Button>
 
@@ -285,10 +287,10 @@ export default function Starter() {
                                         helperText={(errors.phone && touched.phone) && errors.phone}
                                     />
                                     <DialogActions>
-                                        <Button onClick={()=>{setOpen(false);handleReset()}} color="primary">
+                                        <Button basic  onClick={()=>{setOpen(false);handleReset()}} >
                                             Cancel
                                         </Button>
-                                        <Button onClick={handleSubmit} color="primary" type="submit" disabled={isSubmitting}>
+                                        <Button onClick={handleSubmit}   color="default" type="submit" disabled={isSubmitting}>
                                             Submit
                                         </Button>
                                     </DialogActions>

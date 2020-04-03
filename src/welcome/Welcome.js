@@ -159,11 +159,7 @@ export default function Welcome() {
 
   return (
     <React.Fragment>
-
-
-
       <main className={classes.layout} >
-        {/*<div className={classes.root}>*/}
           <Grid container spacing={3}>
             <Grid item xs={6}>
               <div className={classes.text}>
@@ -183,128 +179,15 @@ export default function Welcome() {
             </Grid>
             <Grid item xs={6}>
               <GridList cellHeight={180} className={classes.gridList}>
-                {/*<GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>*/}
-                {/*  <ListSubheader component="div">December</ListSubheader>*/}
-                {/*</GridListTile>*/}
                 {tileData.map(tile => (
                     <GridListTile key={tile.img}>
                       <img src={tile.img} alt={tile.title} />
-                      {/*<GridListTileBar*/}
-                      {/*    title={tile.title}*/}
-                      {/*    subtitle={<span>by: {tile.author}</span>}*/}
-                      {/*/>*/}
                     </GridListTile>
                 ))}
               </GridList>
             </Grid>
           </Grid>
-        {/*</div>*/}
         <Copyright />
-        <Dialog open={openCheckout} onClose={handleCheckoutClose} aria-labelledby="form-dialog-title">
-          <Checkout/>
-        </Dialog>
-        <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-          <DialogTitle id="form-dialog-title">We will contact you!</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              We will get in touch with you as soon as possible, please leave your contacts below, as simple as that! Or if you are eager to get it done right now, you can contact us at <b>+65 97361988</b> or add Whatsapp at this number.
-            </DialogContentText>
-            <Formik
-                initialValues={{ email: '', name: '', comment: '' }}
-                onSubmit={(values, { setSubmitting }) => {
-                  setSubmitting(true);
-                  // axios.post(contactFormEndpoint,
-                  //     values,
-                  //     {
-                  //       headers: {
-                  //         'Access-Control-Allow-Origin': '*',
-                  //         'Content-Type': 'application/json',
-                  //       }
-                  //     },
-                  // ).then((resp) => {
-                  //       setSubmitionCompleted(true);
-                  //     }
-                  // );
-                }}
-
-                validationSchema={Yup.object().shape({
-                  email: Yup.string()
-                      .email()
-                      .required('Required'),
-                  name: Yup.string()
-                      .required('Required'),
-                  phone: Yup.number()
-                      .required('Required'),
-                })}
-            >
-              {(props) => {
-                const {
-                  values,
-                  touched,
-                  errors,
-                  dirty,
-                  isSubmitting,
-                  handleChange,
-                  handleBlur,
-                  handleSubmit,
-                  handleReset,
-                } = props;
-                return (
-                    <form onSubmit={handleSubmit}>
-                      <TextField
-                          autoFocus
-                          required
-                          margin="dense"
-                          id="name"
-                          label="Name"
-                          fullWidth
-                          value={values.name}
-                          error = {errors.name && touched.name}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          helperText={(errors.name && touched.name) && errors.name}
-                      />
-                      <TextField
-                          required
-                          margin="dense"
-                          id="email"
-                          label="Email Address"
-                          type="email"
-                          fullWidth
-                          value={values.email}
-                          error = {errors.email && touched.email}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          helperText={(errors.email && touched.email) && errors.email}
-                      />
-                      <TextField
-                          required
-                          margin="dense"
-                          id="phone"
-                          label="Phone Number"
-                          type="number"
-                          fullWidth
-                          value={values.phone}
-                          error = {errors.phone && touched.phone}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          helperText={(errors.phone && touched.phone) && errors.phone}
-                      />
-                      <DialogActions>
-                        <Button onClick={handleReset} color="primary">
-                          Cancel
-                        </Button>
-                        <Button onClick={handleSubmit} color="primary" type="submit" disabled={isSubmitting}>
-                          Submit
-                        </Button>
-                      </DialogActions>
-                    </form>
-                );
-              }}
-            </Formik>
-
-          </DialogContent>
-        </Dialog>
       </main>
     </React.Fragment>
   );

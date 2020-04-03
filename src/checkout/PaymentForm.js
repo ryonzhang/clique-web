@@ -53,7 +53,7 @@ export default function PaymentForm(props) {
               variant="body2"
               color="textPrimary"
           >
-            1.maintenance of parter information on our platform
+            1.Maintenance of partner information on our platform
           </Typography>
           <br/>
           <Typography
@@ -61,7 +61,7 @@ export default function PaymentForm(props) {
               variant="body2"
               color="textPrimary"
           >
-            2.professional marketing services
+            2.Professional marketing services
           </Typography>
           <br/>
           <Typography
@@ -69,7 +69,7 @@ export default function PaymentForm(props) {
               variant="body2"
               color="textPrimary"
           >
-            3.registration and of courses and enrolment of clients
+            3.Registration and of courses and enrolment of clients
           </Typography>
           <br/>
           <br/>
@@ -78,7 +78,7 @@ export default function PaymentForm(props) {
               variant="caption"
               color="textPrimary"
           >
-            Our staff will contact you two months prior to the launch date to negotiate the concrete terms and conditions.Courses on our platform will be subject to a negotiated rate of commission and any update of terms or conditions will be communicated clearly before hand and mutually agreed upon before taking effect.
+            Our staff will contact you two months prior to the launch date to negotiate the concrete terms and conditions.Courses on our platform will be subject to a negotiated rate of commission and any update to terms and conditions will be communicated clearly before hand and mutually agreed upon before taking effect.
           </Typography>
 
         </Grid>

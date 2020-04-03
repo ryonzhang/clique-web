@@ -17,6 +17,7 @@
     "react-fluid-gallery": "^1.0.2",
     "react-page-scroller": "^2.0.6-beta",
     "react-photo-gallery": "^8.0.0",
+    "react-responsive": "^8.0.3",
     "react-scripts": "3.4.0",
     "react-signature-canvas": "^1.0.3",
     "schema-utils": "^2.6.4",
