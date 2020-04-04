@@ -66,9 +66,9 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'flex-end',
   },
   button: {
-    marginTop: theme.spacing(3),
-      marginLeft:'15%',
-      marginBottom: '10%',
+    marginTop: theme.spacing(1),
+      marginLeft:'25%',
+      marginBottom: '3%',
   },
 
   gridList: {
@@ -88,7 +88,7 @@ const useStyles = makeStyles(theme => ({
     h1:{
         fontFamily:'Passion One,sans-serif',
         fontWeight:100,
-        fontSize:'1.85rem',
+        fontSize:'1.5rem',
         paddingLeft: '5%',
         paddingTop:40,
         marginBottom:0,
@@ -96,7 +96,7 @@ const useStyles = makeStyles(theme => ({
     h2:{
         fontFamily:'Passion One,sans-serif',
         fontWeight:100,
-        fontSize:'1.5rem',
+        fontSize:'1rem',
         textAlign:'left',
         paddingLeft: '5%',
         paddingTop:10,
@@ -105,7 +105,7 @@ const useStyles = makeStyles(theme => ({
     body1:{
         display: 'block',
         fontFamily:'sans-serif',
-        fontSize:'1rem',
+        fontSize:'0.7rem',
         paddingLeft: '5%',
         paddingTop:5,
         textAlign:'justify',
@@ -203,7 +203,7 @@ export default function RegistrarMobile() {
                   <body1 className={classes.body1}>Attract new customers seeking the best activities for their children</body1>
 
 
-              <Button variant="outlined" size={'large'} className={classes.button} onClick={handleCheckoutClickOpen}>
+              <Button variant="outlined" size={'small'} className={classes.button} onClick={handleCheckoutClickOpen}>
                   <b>I'm in! Register me!</b>
               </Button>
 
