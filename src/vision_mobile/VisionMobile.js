@@ -142,7 +142,7 @@ export default function VisionMobile() {
                 </div>
                 <div className={classes.smallFont}>
                     We believe in fair education and opportunities.
-                    Children should be expose to various skillsets
+                    Children should be exposed to various skillsets
                     to better understand their strengths and talent.
                     Self confidence is the foundation of all great
                     success and achievement.
