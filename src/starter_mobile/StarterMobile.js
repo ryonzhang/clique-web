@@ -24,7 +24,7 @@ import china from '../assets/china.jpg';
 import drawing from '../assets/drawing.jpg';
 import instruments from '../assets/instruments.png';
 import speech from '../assets/speech.jpg';
-import background from '../assets/background_mobile.jpg';
+import background from '../assets/starter_mobile.png';
 import programming from '../assets/programming.jpg';
 import Checkout from "../checkout/Checkout";
 import Alert from "@material-ui/lab/Alert";
@@ -66,11 +66,11 @@ const useStyles = makeStyles(theme => ({
     buttons: {
         display: 'flex',
         justifyContent: 'flex-end',
+
     },
     button: {
-        marginTop: theme.spacing(20),
-        marginLeft: 30,
-        color:'pink',
+        marginTop: theme.spacing(4),
+        marginLeft: '25%',
     },
 
     gridList: {
@@ -95,7 +95,7 @@ const useStyles = makeStyles(theme => ({
         fontSize:'2.25rem',
         paddingLeft: 10,
         paddingTop:100,
-        color:'#a74e51'
+        textAlign:'center',
     }
 }));
 
@@ -179,7 +179,7 @@ export default function StarterMobile() {
 
 
             <Button variant="outlined"  color="red" className={classes.button} onClick={handleClickOpen}>
-                Interested? Let us contact you!
+                Interested? <br/>Let us contact you!
             </Button>
 
             {/*</div>*/}

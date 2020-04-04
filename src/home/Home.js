@@ -17,6 +17,8 @@ import {ButtonGroup} from "react-bootstrap";
 import {makeStyles} from "@material-ui/core/styles";
 import mission from "../assets/mission.png";
 import { useMediaQuery } from 'react-responsive'
+import VisionMobile from "../vision_mobile/VisionMobile";
+import RegistrarMobile from "../registrar_mobile/RegistrarMobile";
 
 const Desktop = ({ children }) => {
     const isDesktop = useMediaQuery({ minWidth: 992 })
@@ -74,6 +76,7 @@ export  default function Home(){
     const classes = useStyles();
     return (
         <React.Fragment>
+            <Desktop>
             <CssBaseline />
             <AppBar position="absolute" color={"transparent"}>
                 <Toolbar >
@@ -93,6 +96,50 @@ export  default function Home(){
                 <Mision />
                 <Registrar />
             </ReactPageScroller>
+
+            </Desktop>
+            <Tablet>
+                <CssBaseline />
+                <AppBar position="absolute" color={"transparent"}>
+                    <Toolbar >
+                        <Typography variant="h6" color="inherit" noWrap>
+                            <Button onClick={firstPage} size={'large'}  className={classes[fontStyle]}><b>Clique</b> &nbsp;</Button>
+                        </Typography>
+
+                        <Button color="disabled" eventKey={1} onClick={secondPage} className={classes[fontStyle]}>Our Mission</Button>
+                        <Button color="disabled" eventKey={2} onClick={thirdPage}  className={classes[fontStyle]}>Why Clique</Button>
+                    </Toolbar>
+                </AppBar>
+                <ReactPageScroller
+                    pageOnChange={handlePageChange}
+                    customPageNumber={currentPage}
+                >
+                    <Starter />
+                    <Mision />
+                    <Registrar />
+                </ReactPageScroller>
+            </Tablet>
+            <Mobile>
+                <CssBaseline />
+                <AppBar position="absolute" color={"transparent"}>
+                    <Toolbar >
+                        <Typography variant="h6" color="inherit" noWrap>
+                            <Button onClick={firstPage} size={'large'}  className={classes[fontStyle]}><b>Clique</b> &nbsp;</Button>
+                        </Typography>
+
+                        <Button color="disabled" eventKey={1} onClick={secondPage} className={classes[fontStyle]}>Our Mission</Button>
+                        <Button color="disabled" eventKey={2} onClick={thirdPage}  className={classes[fontStyle]}>Why Clique</Button>
+                    </Toolbar>
+                </AppBar>
+                <ReactPageScroller
+                    pageOnChange={handlePageChange}
+                    customPageNumber={currentPage}
+                >
+                    <StarterMobile />
+                    <VisionMobile />
+                    <RegistrarMobile />
+                </ReactPageScroller>
+            </Mobile>
         </React.Fragment>
     );
 }
